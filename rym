@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌹 Special Surprise</title>
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: black;
+      flex-direction: column;
+      color: white;
+      font-family: Arial;
+    }
+
+    /* انفجار */
+    .explosion {
+      position: absolute;
+      font-size: 100px;
+      animation: boom 1.5s forwards;
+    }
+
+    @keyframes boom {
+      from {
+        transform: scale(0);
+        opacity: 1;
+      }
+
+      to {
+        transform: scale(3);
+        opacity: 0;
+      }
+    }
+
+    /* وردة */
+    .rose {
+      font-size: 200px;
+      animation: pulse 1.5s infinite;
+      display: none;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* رسالة */
+    .message {
+      font-size: 28px;
+      margin-top: 20px;
+      color: pink;
+      display: none;
+      text-align: center;
+      animation: fadeIn 2s forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <audio id="music" autoplay>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="explosion">🌹</div>
+
+  <div class="rose" id="rose">🌹</div>
+
+  <div class="message" id="msg">
+    💖 هادي وردة خاصة ليك... <br>
+   غي باش متبقايش تخافي مني 
+   ديك الساعة الى شفتيني غاتبقاي تفكري الوردة وتنساي الخوف 💖
+   <br> Anas To Rym
+  </div>
+
+  <script>
+
+    // بعد 1.5 ثانية الانفجار يختفي وتبان الوردة
+    setTimeout(() => {
+      document.querySelector(".explosion").style.display = "none";
+      document.getElementById("rose").style.display = "block";
+    }, 1500);
+
+    // بعد 3 ثواني تبان الرسالة
+    setTimeout(() => {
+      document.getElementById("msg").style.display = "block";
+    }, 3000);
+
+  </script>
+
+</body>
+
+</html>
